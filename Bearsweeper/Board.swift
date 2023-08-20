@@ -8,12 +8,17 @@
 import Foundation
 
 class Board: ObservableObject {
+    @Published var gameState: GameState = .ongoing
     @Published var tiles: [Tile] = [Tile(row: 0, col: 0)]
 
     init() {
         populateBoard()
     }
-
+    
+    subscript(row: Int, col: Int) -> Tile? {
+        tileAt(row: row, col: col)
+    }
+    
     func tileAt(row: Int, col: Int) -> Tile? {
         //TODO: board is currently hardcoded to have 8 rows/columns, change this later on
         let index = (row * 8) + col

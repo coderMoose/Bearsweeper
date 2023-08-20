@@ -12,7 +12,7 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            Text("Hello, world!")
+            Text(board.gameState.displayText)
             Spacer()
             boardView
             Spacer()
@@ -25,8 +25,10 @@ struct GameView: View {
             ForEach(0..<8, id: \.self) { row in
                 HStack(spacing: 0) {
                     ForEach(0..<8, id: \.self) { col in
-                        let currentTile = board.tileAt(row: row, col: col)
-                        TileView(tile: currentTile!)
+                        let currentTile = board[row, col]
+                        TileView(tile: currentTile!) { tile in
+                            board.processTap(tile: tile)
+                        }
                     }
                 }
             }

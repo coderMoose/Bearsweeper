@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TileView: View {
     @ObservedObject var tile: Tile
+    var onTap: (Tile) -> Void
+    
     var body: some View {
         Rectangle()
              .border(.green)
@@ -17,7 +19,7 @@ struct TileView: View {
              .disabled(tile.isRevealed)
              .onTapGesture {
                  withAnimation {
-                     tile.isRevealed = true
+                     onTap(tile)
                  }
              }
     }
@@ -25,6 +27,6 @@ struct TileView: View {
 
 struct TileView_Previews: PreviewProvider {
     static var previews: some View {
-        TileView(tile: Tile(row: 0, col: 0))
+        TileView(tile: Tile(row: 0, col: 0), onTap: { _ in })
     }
 }
