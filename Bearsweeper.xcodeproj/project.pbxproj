@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C05BC4562A925977009E8126 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4552A925977009E8126 /* GameView.swift */; };
 		C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F272A919C9D001F887D /* BearsweeperApp.swift */; };
-		C08F7F2A2A919C9D001F887D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F292A919C9D001F887D /* ContentView.swift */; };
 		C08F7F2C2A919C9D001F887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F7F2B2A919C9D001F887D /* Assets.xcassets */; };
 		C08F7F2F2A919C9D001F887D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F7F2E2A919C9D001F887D /* Preview Assets.xcassets */; };
 		C08F7F392A919C9D001F887D /* BearsweeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F382A919C9D001F887D /* BearsweeperTests.swift */; };
@@ -34,9 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C05BC4552A925977009E8126 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		C08F7F242A919C9D001F887D /* Bearsweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bearsweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08F7F272A919C9D001F887D /* BearsweeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperApp.swift; sourceTree = "<group>"; };
-		C08F7F292A919C9D001F887D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C08F7F2B2A919C9D001F887D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C08F7F2E2A919C9D001F887D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C08F7F342A919C9D001F887D /* BearsweeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BearsweeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				C08F7F272A919C9D001F887D /* BearsweeperApp.swift */,
-				C08F7F292A919C9D001F887D /* ContentView.swift */,
+				C05BC4552A925977009E8126 /* GameView.swift */,
 				C08F7F2B2A919C9D001F887D /* Assets.xcassets */,
 				C08F7F2D2A919C9D001F887D /* Preview Content */,
 			);
@@ -257,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C08F7F2A2A919C9D001F887D /* ContentView.swift in Sources */,
+				C05BC4562A925977009E8126 /* GameView.swift in Sources */,
 				C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
