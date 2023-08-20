@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct GameView: View {
+    @StateObject private var board = Board()
+    
     var body: some View {
         VStack {
             Text("Hello, world!")
             Spacer()
             boardView
             Spacer()
-        }.background(Color.brown)
+        }
+        .background(Color.brown)
     }
     
     private var boardView: some View {
@@ -22,9 +25,8 @@ struct GameView: View {
             ForEach(0..<8, id: \.self) { row in
                 HStack(spacing: 0) {
                     ForEach(0..<8, id: \.self) { col in
-                        Rectangle()
-                            .border(.green)
-                            .frame(width: 50, height: 50)
+                        let currentTile = board.tileAt(row: row, col: col)
+                        TileView(tile: currentTile!)
                     }
                 }
             }
