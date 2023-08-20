@@ -10,10 +10,12 @@ import Foundation
 class Tile: ObservableObject, Identifiable {
     let id = UUID()
     @Published var isRevealed: Bool = false
+    let value: TileValue
     var row: Int
     var col: Int
 
-    init(row: Int, col: Int) {
+    init(value: TileValue, row: Int, col: Int) {
+        self.value = value
         self.row = row
         self.col = col
     }

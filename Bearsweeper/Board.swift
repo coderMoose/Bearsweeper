@@ -9,7 +9,7 @@ import Foundation
 
 class Board: ObservableObject {
     @Published var gameState: GameState = .ongoing
-    @Published var tiles: [Tile] = [Tile(row: 0, col: 0)]
+    @Published var tiles: [Tile] = []
 
     init() {
         populateBoard()
@@ -28,8 +28,12 @@ class Board: ObservableObject {
     private func populateBoard() {
         for row in 0..<8 {
             for col in 0..<8 {
-                tiles.append(Tile(row: row, col: col))
+                tiles.append(Tile(value: .honey(0), row: row, col: col))
             }
         }
+    }
+    
+    func processTap(tile: Tile) {
+        tile.isRevealed = true
     }
 }
