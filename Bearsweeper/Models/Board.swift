@@ -61,6 +61,48 @@ class Board: ObservableObject {
         return finalNumBeesAround
     }
     
+    func revealAllZeroesAround(tile: Tile) {
+        switch tile.value {
+        case .bee:
+            break
+        case .honey:
+            if tile.isRevealed {
+                return
+            }
+            self[tile.row, tile.col]?.isRevealed = true
+            if tile.value.isZero {
+                openTilesAround(tile: tile)
+            }
+        }
+    }
+    
+    private func openTilesAround(tile: Tile) {
+        if let tileAbove = above(tile: tile), !tileAbove.isRevealed {
+            revealAllZeroesAround(tile: tileAbove)
+        }
+        if let tileAboveRight = aboveRight(tile: tile), !tileAboveRight.isRevealed {
+            revealAllZeroesAround(tile: tileAboveRight)
+        }
+        if let tileAboveLeft = aboveLeft(tile: tile), !tileAboveLeft.isRevealed {
+            revealAllZeroesAround(tile: tileAboveLeft)
+        }
+        if let tileBelow = below(tile: tile), !tileBelow.isRevealed {
+            revealAllZeroesAround(tile: tileBelow)
+        }
+        if let tileBelowRight = belowRight(tile: tile), !tileBelowRight.isRevealed {
+            revealAllZeroesAround(tile: tileBelowRight)
+        }
+        if let tileBelowLeft = belowLeft(tile: tile), !tileBelowLeft.isRevealed {
+            revealAllZeroesAround(tile: tileBelowLeft)
+        }
+        if let tileRight = right(tile: tile), !tileRight.isRevealed {
+            revealAllZeroesAround(tile: tileRight)
+        }
+        if let tileLeft = left(tile: tile), !tileLeft.isRevealed {
+            revealAllZeroesAround(tile: tileLeft)
+        }
+    }
+    
     func aboveLeft(tile: Tile) -> Tile? {
         self[tile.row - 1, tile.col - 1]
     }
@@ -108,11 +150,19 @@ class Board: ObservableObject {
     }
     
     func processTap(tile: Tile) {
-        tile.isRevealed = true
         if tile.value.isBee {
+            tile.isRevealed = true
             gameState = .lost
             return
         }
+        
+        if tile.value.isZero {
+            // Reveal all the other tiles with no bees around it
+            revealAllZeroesAround(tile: tile)
+            return
+        }
+        
+        tile.isRevealed = true
     }
     
     private func generateTiles() -> Set<Int> {

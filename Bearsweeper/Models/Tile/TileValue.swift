@@ -37,4 +37,13 @@ enum TileValue {
             return false
         }
     }
+    
+    var isZero: Bool {
+        switch self {
+        case .honey(let num):
+            return num == 0
+        case .bee:
+            return false
+        }
+    }
 }
