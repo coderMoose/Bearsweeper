@@ -16,6 +16,7 @@ class Board: ObservableObject {
     init(tileGenerator: TileGenerator = RandomTileGenerator()) {
         self.tileGenerator = tileGenerator
         populateBoard()
+        assignNumberOfSurroundingBeesToTiles()
     }
     
     subscript(row: Int, col: Int) -> Tile? {
@@ -33,6 +34,63 @@ class Board: ObservableObject {
 
         let index = (row * 8) + col
         return tiles[index]
+    }
+    
+    private func assignNumberOfSurroundingBeesToTiles() {
+        for tile in tiles where tile.value.isHoney {
+            tile.value = .honey(beesAround(tile: tile))
+        }
+    }
+    
+    private func beesAround(tile: Tile) -> Int {
+        let finalBees: [Tile?] = [
+            aboveLeft(tile: tile),
+            left(tile: tile),
+            belowLeft(tile: tile),
+            above(tile: tile),
+            aboveRight(tile: tile),
+            belowRight(tile: tile),
+            right(tile: tile),
+            below(tile: tile)
+        ]
+        
+        let nonNilTiles = finalBees.compactMap { $0 }
+        let finalNumBeesAround = nonNilTiles
+                                     .filter { $0.value.isBee }
+                                     .count
+        return finalNumBeesAround
+    }
+    
+    func aboveLeft(tile: Tile) -> Tile? {
+        self[tile.row - 1, tile.col - 1]
+    }
+    
+    func belowLeft(tile: Tile) -> Tile? {
+        self[tile.row + 1, tile.col - 1]
+    }
+    
+    func left(tile: Tile) -> Tile? {
+        self[tile.row, tile.col - 1]
+    }
+    
+    func aboveRight(tile: Tile) -> Tile? {
+        self[tile.row - 1, tile.col + 1]
+    }
+    
+    func belowRight(tile: Tile) -> Tile? {
+        self[tile.row + 1, tile.col + 1]
+    }
+    
+    func right(tile: Tile) -> Tile? {
+        self[tile.row, tile.col + 1]
+    }
+    
+    func above(tile: Tile) -> Tile? {
+        self[tile.row - 1, tile.col]
+    }
+    
+    func below(tile: Tile) -> Tile? {
+        self[tile.row + 1, tile.col]
     }
 
     private func populateBoard() {

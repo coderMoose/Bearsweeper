@@ -10,7 +10,7 @@ import Foundation
 class Tile: ObservableObject, Identifiable {
     let id = UUID()
     @Published var isRevealed: Bool = false
-    let value: TileValue
+    var value: TileValue
     var row: Int
     var col: Int
 
