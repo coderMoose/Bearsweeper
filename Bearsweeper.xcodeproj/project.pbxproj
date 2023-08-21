@@ -13,10 +13,12 @@
 		C05BC45C2A925F9B009E8126 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC45B2A925F9B009E8126 /* TileView.swift */; };
 		C05BC45E2A926922009E8126 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC45D2A926922009E8126 /* GameState.swift */; };
 		C05BC4602A926C99009E8126 /* TileValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC45F2A926C99009E8126 /* TileValue.swift */; };
+		C05BC4622A93804B009E8126 /* TileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4612A93804B009E8126 /* TileGenerator.swift */; };
+		C05BC4642A938059009E8126 /* FakeTileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4632A938059009E8126 /* FakeTileGenerator.swift */; };
 		C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F272A919C9D001F887D /* BearsweeperApp.swift */; };
 		C08F7F2C2A919C9D001F887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F7F2B2A919C9D001F887D /* Assets.xcassets */; };
 		C08F7F2F2A919C9D001F887D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F7F2E2A919C9D001F887D /* Preview Assets.xcassets */; };
-		C08F7F392A919C9D001F887D /* BearsweeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F382A919C9D001F887D /* BearsweeperTests.swift */; };
+		C08F7F392A919C9D001F887D /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F382A919C9D001F887D /* BoardTests.swift */; };
 		C08F7F432A919C9D001F887D /* BearsweeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F422A919C9D001F887D /* BearsweeperUITests.swift */; };
 		C08F7F452A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F442A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -45,12 +47,14 @@
 		C05BC45B2A925F9B009E8126 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		C05BC45D2A926922009E8126 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		C05BC45F2A926C99009E8126 /* TileValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileValue.swift; sourceTree = "<group>"; };
+		C05BC4612A93804B009E8126 /* TileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileGenerator.swift; sourceTree = "<group>"; };
+		C05BC4632A938059009E8126 /* FakeTileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTileGenerator.swift; sourceTree = "<group>"; };
 		C08F7F242A919C9D001F887D /* Bearsweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bearsweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08F7F272A919C9D001F887D /* BearsweeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperApp.swift; sourceTree = "<group>"; };
 		C08F7F2B2A919C9D001F887D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C08F7F2E2A919C9D001F887D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C08F7F342A919C9D001F887D /* BearsweeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BearsweeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C08F7F382A919C9D001F887D /* BearsweeperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperTests.swift; sourceTree = "<group>"; };
+		C08F7F382A919C9D001F887D /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 		C08F7F3E2A919C9D001F887D /* BearsweeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BearsweeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08F7F422A919C9D001F887D /* BearsweeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperUITests.swift; sourceTree = "<group>"; };
 		C08F7F442A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -81,6 +85,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C05BC4652A9380CC009E8126 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C05BC45B2A925F9B009E8126 /* TileView.swift */,
+				C05BC4552A925977009E8126 /* GameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C05BC4662A9380D4009E8126 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C05BC4672A9380E3009E8126 /* Tile */,
+				C05BC45D2A926922009E8126 /* GameState.swift */,
+				C05BC4572A925F36009E8126 /* Board.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C05BC4672A9380E3009E8126 /* Tile */ = {
+			isa = PBXGroup;
+			children = (
+				C05BC45F2A926C99009E8126 /* TileValue.swift */,
+				C05BC4592A925F7A009E8126 /* Tile.swift */,
+				C05BC4612A93804B009E8126 /* TileGenerator.swift */,
+				C05BC4632A938059009E8126 /* FakeTileGenerator.swift */,
+			);
+			path = Tile;
+			sourceTree = "<group>";
+		};
 		C08F7F1B2A919C9D001F887D = {
 			isa = PBXGroup;
 			children = (
@@ -104,13 +138,9 @@
 		C08F7F262A919C9D001F887D /* Bearsweeper */ = {
 			isa = PBXGroup;
 			children = (
-				C05BC45F2A926C99009E8126 /* TileValue.swift */,
-				C05BC45D2A926922009E8126 /* GameState.swift */,
-				C05BC4592A925F7A009E8126 /* Tile.swift */,
-				C05BC45B2A925F9B009E8126 /* TileView.swift */,
+				C05BC4662A9380D4009E8126 /* Models */,
+				C05BC4652A9380CC009E8126 /* Views */,
 				C08F7F272A919C9D001F887D /* BearsweeperApp.swift */,
-				C05BC4552A925977009E8126 /* GameView.swift */,
-				C05BC4572A925F36009E8126 /* Board.swift */,
 				C08F7F2B2A919C9D001F887D /* Assets.xcassets */,
 				C08F7F2D2A919C9D001F887D /* Preview Content */,
 			);
@@ -128,7 +158,7 @@
 		C08F7F372A919C9D001F887D /* BearsweeperTests */ = {
 			isa = PBXGroup;
 			children = (
-				C08F7F382A919C9D001F887D /* BearsweeperTests.swift */,
+				C08F7F382A919C9D001F887D /* BoardTests.swift */,
 			);
 			path = BearsweeperTests;
 			sourceTree = "<group>";
@@ -275,8 +305,10 @@
 				C05BC4562A925977009E8126 /* GameView.swift in Sources */,
 				C05BC4602A926C99009E8126 /* TileValue.swift in Sources */,
 				C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */,
+				C05BC4622A93804B009E8126 /* TileGenerator.swift in Sources */,
 				C05BC4582A925F36009E8126 /* Board.swift in Sources */,
 				C05BC45E2A926922009E8126 /* GameState.swift in Sources */,
+				C05BC4642A938059009E8126 /* FakeTileGenerator.swift in Sources */,
 				C05BC45C2A925F9B009E8126 /* TileView.swift in Sources */,
 				C05BC45A2A925F7A009E8126 /* Tile.swift in Sources */,
 			);
@@ -286,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C08F7F392A919C9D001F887D /* BearsweeperTests.swift in Sources */,
+				C08F7F392A919C9D001F887D /* BoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,11 @@ import Foundation
 class Board: ObservableObject {
     @Published var gameState: GameState = .ongoing
     @Published var tiles: [Tile] = []
-
-    init() {
+    
+    private let tileGenerator: TileGenerator
+    
+    init(tileGenerator: TileGenerator = RandomTileGenerator()) {
+        self.tileGenerator = tileGenerator
         populateBoard()
     }
     
@@ -21,12 +24,19 @@ class Board: ObservableObject {
     
     func tileAt(row: Int, col: Int) -> Tile? {
         //TODO: board is currently hardcoded to have 8 rows/columns, change this later on
+        if row < 0 || row >= 8 {
+            return nil
+        }
+        if col < 0 || col >= 8 {
+            return nil
+        }
+
         let index = (row * 8) + col
         return tiles[index]
     }
 
     private func populateBoard() {
-        let randomTiles = generateTiles()
+        let randomTiles = tileGenerator.generateTiles()
         tiles.reserveCapacity(64)
 
         for i in 0..<64 {
