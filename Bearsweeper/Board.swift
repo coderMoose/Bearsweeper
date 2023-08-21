@@ -26,14 +26,36 @@ class Board: ObservableObject {
     }
 
     private func populateBoard() {
-        for row in 0..<8 {
-            for col in 0..<8 {
-                tiles.append(Tile(value: .honey(0), row: row, col: col))
-            }
+        let randomTiles = generateTiles()
+        tiles.reserveCapacity(64)
+
+        for i in 0..<64 {
+            let row = i / 8
+            let col = i % 8
+            
+            let isBeeTile = randomTiles.contains(i)
+            let newTile = Tile(value: isBeeTile ? .bee : .honey(0), row: row, col: col)
+            tiles.append(newTile)
         }
     }
     
     func processTap(tile: Tile) {
         tile.isRevealed = true
+        if tile.value.isBee {
+            gameState = .lost
+            return
+        }
+    }
+    
+    private func generateTiles() -> Set<Int> {
+        var randomTiles: Set<Int> = []
+        
+        //TODO: make this the correct number of mines for different game types instead of 10
+        while randomTiles.count != 10 {
+            let randomPos = Int.random(in: 0..<64)
+            randomTiles.insert(randomPos)
+        }
+        
+        return randomTiles
     }
 }
