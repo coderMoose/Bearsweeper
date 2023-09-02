@@ -15,6 +15,7 @@
 		C05BC4602A926C99009E8126 /* TileValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC45F2A926C99009E8126 /* TileValue.swift */; };
 		C05BC4622A93804B009E8126 /* TileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4612A93804B009E8126 /* TileGenerator.swift */; };
 		C05BC4642A938059009E8126 /* FakeTileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4632A938059009E8126 /* FakeTileGenerator.swift */; };
+		C05BC4882AA37FB7009E8126 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4872AA37FB7009E8126 /* BoardView.swift */; };
 		C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F272A919C9D001F887D /* BearsweeperApp.swift */; };
 		C08F7F2C2A919C9D001F887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F7F2B2A919C9D001F887D /* Assets.xcassets */; };
 		C08F7F2F2A919C9D001F887D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F7F2E2A919C9D001F887D /* Preview Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		C05BC45F2A926C99009E8126 /* TileValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileValue.swift; sourceTree = "<group>"; };
 		C05BC4612A93804B009E8126 /* TileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileGenerator.swift; sourceTree = "<group>"; };
 		C05BC4632A938059009E8126 /* FakeTileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTileGenerator.swift; sourceTree = "<group>"; };
+		C05BC4872AA37FB7009E8126 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		C08F7F242A919C9D001F887D /* Bearsweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bearsweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08F7F272A919C9D001F887D /* BearsweeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperApp.swift; sourceTree = "<group>"; };
 		C08F7F2B2A919C9D001F887D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		C05BC4652A9380CC009E8126 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C05BC4872AA37FB7009E8126 /* BoardView.swift */,
 				C05BC45B2A925F9B009E8126 /* TileView.swift */,
 				C05BC4552A925977009E8126 /* GameView.swift */,
 			);
@@ -309,6 +312,7 @@
 				C05BC4582A925F36009E8126 /* Board.swift in Sources */,
 				C05BC45E2A926922009E8126 /* GameState.swift in Sources */,
 				C05BC4642A938059009E8126 /* FakeTileGenerator.swift in Sources */,
+				C05BC4882AA37FB7009E8126 /* BoardView.swift in Sources */,
 				C05BC45C2A925F9B009E8126 /* TileView.swift in Sources */,
 				C05BC45A2A925F7A009E8126 /* Tile.swift in Sources */,
 			);

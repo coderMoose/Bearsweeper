@@ -14,26 +14,11 @@ struct GameView: View {
         VStack {
             Text(board.gameState.displayText)
             Spacer()
-            boardView
+            BoardView(board: board)
+                .padding()
             Spacer()
         }
-        .background(Color.brown)
-    }
-    
-    private var boardView: some View {
-        VStack(spacing: 0) {
-            ForEach(0..<8, id: \.self) { row in
-                HStack(spacing: 0) {
-                    ForEach(0..<8, id: \.self) { col in
-                        let currentTile = board[row, col]
-                        TileView(tile: currentTile!) { tile in
-                            board.processTap(tile: tile)
-                        }
-                    }
-                }
-            }
-        }
-        .border(.green)
+        .background(Color.brown.gradient)
     }
 }
 

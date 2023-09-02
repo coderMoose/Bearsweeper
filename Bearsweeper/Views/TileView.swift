@@ -15,21 +15,26 @@ struct TileView: View {
         ZStack {
             Rectangle()
                 .opacity(tile.isRevealed ? 1.0 : 0.0)
-                .foregroundColor(.yellow)
-                .frame(width: 50, height: 50)
+                .foregroundColor(.brown)
         
             Rectangle()
-                .border(.green)
-                .frame(width: 50, height: 50)
-                        .foregroundColor(tile.isRevealed ? .clear : .black)
+                .border(Color.brown.gradient.shadow(.inner(radius: 10)))
+                .foregroundColor(tile.isRevealed ? .clear : .beige)
                 .disabled(tile.isRevealed)
                 .onTapGesture {
                     withAnimation {
                         onTap(tile)
                     }
                 }
-            Text(tile.value.displayText)
-                .foregroundColor(.white)
+            
+            if tile.value.isBee {
+                Image(uiImage: UIImage(named: "bee")!)
+                    .resizable()
+                    .colorMultiply(.yellow)
+            } else {
+                Text(tile.value.displayText)
+                    .foregroundColor(.white)
+            }
         }
     }
 }
@@ -38,4 +43,8 @@ struct TileView_Previews: PreviewProvider {
     static var previews: some View {
         TileView(tile: Tile(value: .honey(0), row: 0, col: 0), onTap: { _ in })
     }
+}
+
+extension Color {
+    static let beige = Color("Beige")
 }
