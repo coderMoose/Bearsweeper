@@ -14,8 +14,8 @@
 		C05BC45E2A926922009E8126 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC45D2A926922009E8126 /* GameState.swift */; };
 		C05BC4602A926C99009E8126 /* TileValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC45F2A926C99009E8126 /* TileValue.swift */; };
 		C05BC4622A93804B009E8126 /* TileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4612A93804B009E8126 /* TileGenerator.swift */; };
-		C05BC4642A938059009E8126 /* FakeTileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4632A938059009E8126 /* FakeTileGenerator.swift */; };
 		C05BC4882AA37FB7009E8126 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4872AA37FB7009E8126 /* BoardView.swift */; };
+		C05BC4892AA39009009E8126 /* FakeTileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4632A938059009E8126 /* FakeTileGenerator.swift */; };
 		C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F272A919C9D001F887D /* BearsweeperApp.swift */; };
 		C08F7F2C2A919C9D001F887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F7F2B2A919C9D001F887D /* Assets.xcassets */; };
 		C08F7F2F2A919C9D001F887D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F7F2E2A919C9D001F887D /* Preview Assets.xcassets */; };
@@ -113,7 +113,6 @@
 				C05BC45F2A926C99009E8126 /* TileValue.swift */,
 				C05BC4592A925F7A009E8126 /* Tile.swift */,
 				C05BC4612A93804B009E8126 /* TileGenerator.swift */,
-				C05BC4632A938059009E8126 /* FakeTileGenerator.swift */,
 			);
 			path = Tile;
 			sourceTree = "<group>";
@@ -161,6 +160,7 @@
 		C08F7F372A919C9D001F887D /* BearsweeperTests */ = {
 			isa = PBXGroup;
 			children = (
+				C05BC4632A938059009E8126 /* FakeTileGenerator.swift */,
 				C08F7F382A919C9D001F887D /* BoardTests.swift */,
 			);
 			path = BearsweeperTests;
@@ -311,7 +311,6 @@
 				C05BC4622A93804B009E8126 /* TileGenerator.swift in Sources */,
 				C05BC4582A925F36009E8126 /* Board.swift in Sources */,
 				C05BC45E2A926922009E8126 /* GameState.swift in Sources */,
-				C05BC4642A938059009E8126 /* FakeTileGenerator.swift in Sources */,
 				C05BC4882AA37FB7009E8126 /* BoardView.swift in Sources */,
 				C05BC45C2A925F9B009E8126 /* TileView.swift in Sources */,
 				C05BC45A2A925F7A009E8126 /* Tile.swift in Sources */,
@@ -322,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05BC4892AA39009009E8126 /* FakeTileGenerator.swift in Sources */,
 				C08F7F392A919C9D001F887D /* BoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

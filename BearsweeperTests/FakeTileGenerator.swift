@@ -5,6 +5,7 @@
 //  Created by Daniel on 2023-08-21.
 //
 
+@testable import Bearsweeper
 import Foundation
 
 struct FakeTileGenerator: TileGenerator {
