@@ -111,4 +111,24 @@ final class BoardTests: XCTestCase {
         XCTAssertNil(sut.right(tile: wrongTile))
         XCTAssertNotNil(sut.right(tile: correctTile))
     }
+    
+    func testGameStateEqualsWonAfterAllSafeTilesAreRevealed() {
+        let sut = Board(tileGenerator: FakeTileGenerator())
+        let beeLocations = [1, 2, 3, 5, 8, 13, 21, 34, 55, 61]
+        
+        XCTAssertEqual(sut.gameState, .ongoing)
+        
+        // Reveal all the non-bee tiles
+        for tileIndex in 0..<sut.tiles.count {
+            if !beeLocations.contains(tileIndex) {
+                sut.processTap(tile: sut.tiles[tileIndex])
+            }
+        }
+        
+        let revealedCount = sut.tiles.lazy.filter({ $0.isRevealed }).count
+        print(revealedCount)
+        let e = sut.tiles.lazy.filter({ $0.value.isBee }).count
+        print(e)
+        XCTAssertEqual(sut.gameState, .won)
+    }
 }

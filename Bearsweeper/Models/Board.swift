@@ -163,6 +163,14 @@ class Board: ObservableObject {
         }
         
         tile.isRevealed = true
+        checkIsGameWon()
+    }
+    
+    private func checkIsGameWon() {
+        // If there are only tiles with bees left, user has won the game
+        //TODO: change this to to correct number of mines for selected game type
+        let revealedCount = tiles.lazy.filter({ $0.isRevealed }).count
+        gameState = revealedCount == 54 ? .won : .ongoing
     }
     
     private func generateTiles() -> Set<Int> {
