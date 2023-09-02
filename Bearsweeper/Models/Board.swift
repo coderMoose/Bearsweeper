@@ -8,9 +8,9 @@
 import Foundation
 
 class Board: ObservableObject {
-    @Published var gameState: GameState = .ongoing
-    @Published var tiles: [Tile] = []
-    
+    @Published private(set) var gameState: GameState = .ongoing
+    @Published private(set) var tiles: [Tile] = []
+        
     private let tileGenerator: TileGenerator
     
     init(tileGenerator: TileGenerator = RandomTileGenerator()) {
