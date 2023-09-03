@@ -31,6 +31,7 @@ struct TileView: View {
                 Image(uiImage: UIImage(named: "bee")!)
                     .resizable()
                     .colorMultiply(.yellow)
+                    .opacity(tile.isRevealed ? 1.0 : 0.0)
             } else {
                 Text(tile.value.displayText)
                     .foregroundColor(.white)

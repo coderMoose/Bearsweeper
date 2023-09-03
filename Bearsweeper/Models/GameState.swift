@@ -22,4 +22,15 @@ enum GameState {
             return ":D"
         }
     }
+    
+    var imageName: String {
+        switch self {
+        case .won:
+            return "bearCool"
+        case .lost:
+            return "bearRIP"
+        case .ongoing:
+            return "bearSmile"
+        }
+    }
 }

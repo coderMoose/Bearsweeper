@@ -12,13 +12,35 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            Text(board.gameState.displayText)
+            navBar
             Spacer()
             BoardView(board: board)
-                .padding()
+                .padding(3)
             Spacer()
         }
-        .background(Color.brown.gradient)
+    }
+    
+    private var navBar: some View {
+        HStack {
+            Spacer()
+            bearIcon
+            Text(board.gameState.displayText)
+            Spacer()
+        }
+        .padding()
+        .background(Color.brown)
+    }
+    
+    private var bearIcon: some View {
+        Image(uiImage: UIImage(named: board.gameState.imageName)!)
+            .resizable()
+            .frame(width: 65, height: 65)
+            .foregroundColor(.yellow)
+            .onTapGesture {
+                // bring up a popup view
+            }
+            .background(Color.beige)
+            .border(Color.yellow)
     }
 }
 
