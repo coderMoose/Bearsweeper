@@ -35,7 +35,7 @@ final class BoardTests: XCTestCase {
         XCTAssertNotNil(sut[8 - 1, 6])
     }
     
-    func testAboveLeftReturnsCorrectValue() throws {
+    func testAboveLeftReturnsValidTileWhenNotOnBorder() throws {
         let sut = Board()
          
         let wrongTile = try XCTUnwrap(sut[0, 0])
@@ -45,7 +45,7 @@ final class BoardTests: XCTestCase {
         XCTAssertNotNil(sut.aboveLeft(tile: correctTile))
     }
     
-    func testAboveRightReturnsCorrectValue() throws {
+    func testAboveRightReturnsValidTileWhenNotOnBorder() throws {
         let sut = Board()
          
         let wrongTile = try XCTUnwrap(sut[0, 8 - 1])
@@ -55,7 +55,7 @@ final class BoardTests: XCTestCase {
         XCTAssertNotNil(sut.aboveRight(tile: correctTile))
     }
     
-    func testAboveReturnsCorrectValue() throws {
+    func testAboveReturnsValidTileWhenNotOnBorder() throws {
         let sut = Board()
          
         let wrongTile = try XCTUnwrap(sut[0, 0])
@@ -65,7 +65,7 @@ final class BoardTests: XCTestCase {
         XCTAssertNotNil(sut.above(tile: correctTile))
     }
     
-    func testBelowLeftReturnsCorrectValue() throws {
+    func testBelowLeftReturnsValidTileWhenNotOnBorder() throws {
         let sut = Board()
         let wrongTile = try XCTUnwrap(sut[8 - 2, 0])
         let correctTile = try XCTUnwrap(sut[0, 1])
@@ -74,7 +74,7 @@ final class BoardTests: XCTestCase {
         XCTAssertNotNil(sut.belowLeft(tile: correctTile))
     }
     
-    func testBelowRightReturnsCorrectValue() throws {
+    func testBelowRightReturnsValidTileWhenNotOnBorder() throws {
         let sut = Board()
          
         let wrongTile = try XCTUnwrap(sut[8 - 2, 8 - 1])
@@ -84,7 +84,7 @@ final class BoardTests: XCTestCase {
         XCTAssertNotNil(sut.belowRight(tile: correctTile))
     }
     
-    func testBelowReturnsCorrectValue() throws {
+    func testBelowReturnsValidTileWhenNotOnBorder() throws {
         let sut = Board()
         let wrongTile = try XCTUnwrap(sut[8 - 1, 0])
         let correctTile = try XCTUnwrap(sut[0, 0])
@@ -93,7 +93,7 @@ final class BoardTests: XCTestCase {
         XCTAssertNotNil(sut.below(tile: correctTile))
     }
     
-    func testLeftReturnsCorrectValue() throws {
+    func testLeftReturnsValidTileWhenNotOnBorder() throws {
         let sut = Board()
         let wrongTile = try XCTUnwrap(sut[0, 0])
         let correctTile = try XCTUnwrap(sut[0, 8 - 1])
@@ -102,8 +102,7 @@ final class BoardTests: XCTestCase {
         XCTAssertNotNil(sut.left(tile: correctTile))
     }
     
-    //TODO: refactor tile methods and XCAssert them
-    func testRightReturnsCorrectValue() throws {
+    func testRightReturnsValidTileWhenNotOnBorder() throws {
         let sut = Board()
         let wrongTile = try XCTUnwrap(sut[0, 8 - 1])
         let correctTile = try XCTUnwrap(sut[0, 8 - 2])
