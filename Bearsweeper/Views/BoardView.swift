@@ -41,6 +41,6 @@ struct BoardView: View {
 
 struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
-        BoardView(board: Board(tileGenerator: FakeTileGenerator()))
+        BoardView(board: Board())
     }
 }

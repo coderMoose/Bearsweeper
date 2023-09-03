@@ -11,8 +11,8 @@ class Tile: ObservableObject, Identifiable {
     let id = UUID()
     @Published var isRevealed: Bool = false
     var value: TileValue
-    var row: Int
-    var col: Int
+    let row: Int
+    let col: Int
 
     init(value: TileValue, row: Int, col: Int) {
         self.value = value

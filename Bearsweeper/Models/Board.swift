@@ -23,19 +23,6 @@ class Board: ObservableObject {
         tileAt(row: row, col: col)
     }
     
-    func tileAt(row: Int, col: Int) -> Tile? {
-        //TODO: board is currently hardcoded to have 8 rows/columns, change this later on
-        if row < 0 || row >= 8 {
-            return nil
-        }
-        if col < 0 || col >= 8 {
-            return nil
-        }
-
-        let index = (row * 8) + col
-        return tiles[index]
-    }
-    
     private func assignNumberOfSurroundingBeesToTiles() {
         for tile in tiles where tile.value.isHoney {
             tile.value = .honey(beesAround(tile: tile))
@@ -59,21 +46,6 @@ class Board: ObservableObject {
                                      .filter { $0.value.isBee }
                                      .count
         return finalNumBeesAround
-    }
-    
-    func revealAllZeroesAround(tile: Tile) {
-        switch tile.value {
-        case .bee:
-            break
-        case .honey:
-            if tile.isRevealed {
-                return
-            }
-            self[tile.row, tile.col]?.isRevealed = true
-            if tile.value.isZero {
-                openTilesAround(tile: tile)
-            }
-        }
     }
     
     private func openTilesAround(tile: Tile) {
@@ -100,6 +72,55 @@ class Board: ObservableObject {
         }
         if let tileLeft = left(tile: tile), !tileLeft.isRevealed {
             revealAllZeroesAround(tile: tileLeft)
+        }
+    }
+    
+    private func populateBoard() {
+        let randomTiles = tileGenerator.generateTiles()
+        tiles.reserveCapacity(64)
+
+        for i in 0..<64 {
+            let row = i / 8
+            let col = i % 8
+            
+            let isBeeTile = randomTiles.contains(i)
+            let newTile = Tile(value: isBeeTile ? .bee : .honey(0), row: row, col: col)
+            tiles.append(newTile)
+        }
+    }
+    
+    private func checkIsGameWon() {
+        // If there are only tiles with bees left, user has won the game
+        //TODO: change this to to correct number of mines for selected game type
+        let revealedCount = tiles.lazy.filter({ $0.isRevealed }).count
+        gameState = revealedCount == 54 ? .won : .ongoing
+    }
+    
+    func tileAt(row: Int, col: Int) -> Tile? {
+        //TODO: board is currently hardcoded to have 8 rows/columns, change this later on
+        if row < 0 || row >= 8 {
+            return nil
+        }
+        if col < 0 || col >= 8 {
+            return nil
+        }
+
+        let index = (row * 8) + col
+        return tiles[index]
+    }
+    
+    func revealAllZeroesAround(tile: Tile) {
+        switch tile.value {
+        case .bee:
+            break
+        case .honey:
+            if tile.isRevealed {
+                return
+            }
+            self[tile.row, tile.col]?.isRevealed = true
+            if tile.value.isZero {
+                openTilesAround(tile: tile)
+            }
         }
     }
     
@@ -134,20 +155,6 @@ class Board: ObservableObject {
     func below(tile: Tile) -> Tile? {
         self[tile.row + 1, tile.col]
     }
-
-    private func populateBoard() {
-        let randomTiles = tileGenerator.generateTiles()
-        tiles.reserveCapacity(64)
-
-        for i in 0..<64 {
-            let row = i / 8
-            let col = i % 8
-            
-            let isBeeTile = randomTiles.contains(i)
-            let newTile = Tile(value: isBeeTile ? .bee : .honey(0), row: row, col: col)
-            tiles.append(newTile)
-        }
-    }
     
     func processTap(tile: Tile) {
         if tile.value.isBee {
@@ -164,24 +171,5 @@ class Board: ObservableObject {
         
         tile.isRevealed = true
         checkIsGameWon()
-    }
-    
-    private func checkIsGameWon() {
-        // If there are only tiles with bees left, user has won the game
-        //TODO: change this to to correct number of mines for selected game type
-        let revealedCount = tiles.lazy.filter({ $0.isRevealed }).count
-        gameState = revealedCount == 54 ? .won : .ongoing
-    }
-    
-    private func generateTiles() -> Set<Int> {
-        var randomTiles: Set<Int> = []
-        
-        //TODO: make this the correct number of mines for different game types instead of 10
-        while randomTiles.count != 10 {
-            let randomPos = Int.random(in: 0..<64)
-            randomTiles.insert(randomPos)
-        }
-        
-        return randomTiles
     }
 }
