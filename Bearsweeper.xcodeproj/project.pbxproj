@@ -10,6 +10,7 @@
 		C002860B2AA512A500E1B723 /* RandomTileGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C002860A2AA512A500E1B723 /* RandomTileGeneratorTests.swift */; };
 		C002860D2AA54C9100E1B723 /* MenuPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C002860C2AA54C9100E1B723 /* MenuPopupView.swift */; };
 		C002860F2AA65DFA00E1B723 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C002860E2AA65DFA00E1B723 /* MainView.swift */; };
+		C00286112AA65E8500E1B723 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00286102AA65E8500E1B723 /* RouterView.swift */; };
 		C05BC4562A925977009E8126 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4552A925977009E8126 /* GameView.swift */; };
 		C05BC4582A925F36009E8126 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4572A925F36009E8126 /* Board.swift */; };
 		C05BC45A2A925F7A009E8126 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BC4592A925F7A009E8126 /* Tile.swift */; };
@@ -48,6 +49,7 @@
 		C002860A2AA512A500E1B723 /* RandomTileGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTileGeneratorTests.swift; sourceTree = "<group>"; };
 		C002860C2AA54C9100E1B723 /* MenuPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopupView.swift; sourceTree = "<group>"; };
 		C002860E2AA65DFA00E1B723 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C00286102AA65E8500E1B723 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		C05BC4552A925977009E8126 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		C05BC4572A925F36009E8126 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		C05BC4592A925F7A009E8126 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				C05BC45B2A925F9B009E8126 /* TileView.swift */,
 				C05BC4552A925977009E8126 /* GameView.swift */,
 				C002860E2AA65DFA00E1B723 /* MainView.swift */,
+				C00286102AA65E8500E1B723 /* RouterView.swift */,
 				C002860C2AA54C9100E1B723 /* MenuPopupView.swift */,
 			);
 			path = Views;
@@ -317,6 +320,7 @@
 				C05BC4562A925977009E8126 /* GameView.swift in Sources */,
 				C05BC4602A926C99009E8126 /* TileValue.swift in Sources */,
 				C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */,
+				C00286112AA65E8500E1B723 /* RouterView.swift in Sources */,
 				C05BC4622A93804B009E8126 /* TileGenerator.swift in Sources */,
 				C002860D2AA54C9100E1B723 /* MenuPopupView.swift in Sources */,
 				C05BC4582A925F36009E8126 /* Board.swift in Sources */,

@@ -11,7 +11,7 @@ import SwiftUI
 struct BearsweeperApp: App {
     var body: some Scene {
         WindowGroup {
-            GameView()
+            RouterView()
         }
     }
 }

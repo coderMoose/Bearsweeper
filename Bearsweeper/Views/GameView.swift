@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameView: View {
-    @StateObject private var board = Board()
+    @ObservedObject var board: Board
     
     var body: some View {
         ZStack {
@@ -60,6 +60,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(board: Board())
     }
 }
