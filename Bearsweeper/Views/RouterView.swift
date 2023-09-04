@@ -19,9 +19,12 @@ struct RouterView: View {
     var body: some View {
         switch currentScreen {
         case .gameView:
-            GameView(board: board) {
+            GameView(board: board, returnToMainViewTapped: {
+                currentScreen = .mainView
                 board = Board()
-            }
+            }, newGameTapped: {
+                board = Board()
+            })
             
         case .mainView:
             MainView(currentScreen: $currentScreen)

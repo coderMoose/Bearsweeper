@@ -9,14 +9,16 @@ import SwiftUI
 
 struct GameView: View {
     @ObservedObject var board: Board
+    let returnToMainViewTapped: () -> Void
     let newGameTapped: () -> Void
     
     var body: some View {
         ZStack {
             gameView
                 .background(Color.beige)
-            if !(board.gameState == .ongoing) {
-                MenuPopupView(board: board, newGameTapped: newGameTapped)
+                .disabled(board.gameState.isNotOngoing)
+            if board.gameState.isNotOngoing {
+                MenuPopupView(board: board, returnToMainViewTapped: returnToMainViewTapped, newGameTapped: newGameTapped)
             }
         }
     }
@@ -60,6 +62,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(board: Board(), newGameTapped: {})
+        GameView(board: Board(), returnToMainViewTapped: {}, newGameTapped: {})
     }
 }

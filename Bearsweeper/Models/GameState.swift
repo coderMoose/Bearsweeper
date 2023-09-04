@@ -38,4 +38,22 @@ enum GameState {
             return "bearShocked"
         }
     }
+    
+    var isGameOver: Bool {
+        switch self {
+        case .won, .lost:
+            return true
+        case .ongoing, .paused:
+            return false
+        }
+    }
+    
+    var isNotOngoing: Bool {
+        switch self {
+        case .won, .lost, .paused:
+            return true
+        case .ongoing:
+            return false
+        }
+    }
 }
