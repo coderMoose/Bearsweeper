@@ -8,7 +8,7 @@
 import Foundation
 
 class Board: ObservableObject {
-    @Published private(set) var gameState: GameState = .ongoing
+    @Published var gameState: GameState = .ongoing
     @Published private(set) var tiles: [Tile] = []
         
     private let tileGenerator: TileGenerator
@@ -171,5 +171,10 @@ class Board: ObservableObject {
         
         tile.isRevealed = true
         checkIsGameWon()
+    }
+    
+    func togglePause() {
+        // If the game is paused, resume the game, if not, pause the game
+        gameState = (gameState == .paused) ? .ongoing : .paused
     }
 }

@@ -11,6 +11,7 @@ enum GameState {
     case won
     case lost
     case ongoing
+    case paused
 
     var displayText: String {
         switch self {
@@ -20,6 +21,8 @@ enum GameState {
             return "You lost :("
         case .ongoing:
             return ":D"
+        case .paused:
+            return "Game paused"
         }
     }
     
@@ -31,6 +34,8 @@ enum GameState {
             return "bearRIP"
         case .ongoing:
             return "bearSmile"
+        case .paused:
+            return "bearShocked"
         }
     }
 }

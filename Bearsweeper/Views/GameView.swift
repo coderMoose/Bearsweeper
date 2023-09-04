@@ -11,6 +11,18 @@ struct GameView: View {
     @StateObject private var board = Board()
     
     var body: some View {
+        ZStack {
+            gameView
+            
+            if !(board.gameState == .ongoing) {
+                MenuPopupView(board: board, newGameTapped: {
+                    board.togglePause()
+                })
+            }
+        }
+    }
+    
+    private var gameView: some View {
         VStack {
             navBar
             Spacer()
@@ -37,7 +49,9 @@ struct GameView: View {
             .frame(width: 65, height: 65)
             .foregroundColor(.yellow)
             .onTapGesture {
-                // bring up a popup view
+                withAnimation {
+                    board.togglePause()
+                }
             }
             .background(Color.beige)
             .border(Color.yellow)
