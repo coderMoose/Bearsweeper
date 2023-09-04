@@ -166,7 +166,6 @@ class Board: ObservableObject {
         if tile.value.isZero {
             // Reveal all the other tiles with no bees around it
             revealAllZeroesAround(tile: tile)
-            return
         }
         
         tile.isRevealed = true

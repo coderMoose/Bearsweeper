@@ -9,15 +9,14 @@ import SwiftUI
 
 struct GameView: View {
     @ObservedObject var board: Board
+    let newGameTapped: () -> Void
     
     var body: some View {
         ZStack {
             gameView
-            
+                .background(Color.beige)
             if !(board.gameState == .ongoing) {
-                MenuPopupView(board: board, newGameTapped: {
-                    board.togglePause()
-                })
+                MenuPopupView(board: board, newGameTapped: newGameTapped)
             }
         }
     }
@@ -27,6 +26,8 @@ struct GameView: View {
             navBar
             Spacer()
             BoardView(board: board)
+                .padding(4)
+                .background(Color.brown)
                 .padding(3)
             Spacer()
         }
@@ -47,19 +48,18 @@ struct GameView: View {
         Image(uiImage: UIImage(named: board.gameState.imageName)!)
             .resizable()
             .frame(width: 65, height: 65)
-            .foregroundColor(.yellow)
             .onTapGesture {
                 withAnimation {
                     board.togglePause()
                 }
             }
             .background(Color.beige)
-            .border(Color.yellow)
+            .border(Color.black)
     }
 }
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(board: Board())
+        GameView(board: Board(), newGameTapped: {})
     }
 }
