@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @Binding var currentScreen: Screen
+    
     var body: some View {
         VStack {
             navBar
@@ -23,7 +25,7 @@ struct MainView: View {
     private var newGameButton: some View {
         Button {
             withAnimation {
-                // switch screen to game view
+                currentScreen = .gameView
             }
         } label: {
             Text("New Game")
@@ -52,6 +54,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(currentScreen: .constant(.mainView))
     }
 }

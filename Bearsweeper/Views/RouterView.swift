@@ -22,7 +22,7 @@ struct RouterView: View {
             GameView(board: board)
             
         case .mainView:
-            MainView()
+            MainView(currentScreen: $currentScreen)
         }
     }
 }
