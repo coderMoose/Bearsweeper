@@ -20,9 +20,9 @@ struct BoardView: View {
     }
     
     private func board(for geo: GeometryProxy) -> some View {
-        ForEach(0..<8, id: \.self) { row in
+        ForEach(0..<board.gameType.numRows, id: \.self) { row in
             HStack(spacing: 0) {
-                ForEach(0..<8, id: \.self) { col in
+                ForEach(0..<board.gameType.numColumns, id: \.self) { col in
                     let tileSize = tileSize(thatFits: geo.size)
                     let currentTile = board[row, col]
                     TileView(tile: currentTile!) { tile in
@@ -34,13 +34,13 @@ struct BoardView: View {
     }
     
     private func tileSize(thatFits size: CGSize) -> CGFloat {
-        min(size.width / CGFloat(8),
-            size.height / CGFloat(8))
+        min(size.width / CGFloat(board.gameType.numColumns),
+            size.height / CGFloat(board.gameType.numRows))
     }
 }
 
 struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
-        BoardView(board: Board())
+        BoardView(board: Board(gameType: .beginner))
     }
 }

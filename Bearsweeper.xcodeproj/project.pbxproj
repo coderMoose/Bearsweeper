@@ -26,6 +26,7 @@
 		C08F7F392A919C9D001F887D /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F382A919C9D001F887D /* BoardTests.swift */; };
 		C08F7F432A919C9D001F887D /* BearsweeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F422A919C9D001F887D /* BearsweeperUITests.swift */; };
 		C08F7F452A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F442A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift */; };
+		C0B393ED2AA68D4C00FA686B /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B393EC2AA68D4C00FA686B /* GameType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C08F7F3E2A919C9D001F887D /* BearsweeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BearsweeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08F7F422A919C9D001F887D /* BearsweeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperUITests.swift; sourceTree = "<group>"; };
 		C08F7F442A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C0B393EC2AA68D4C00FA686B /* GameType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				C05BC4672A9380E3009E8126 /* Tile */,
 				C05BC45D2A926922009E8126 /* GameState.swift */,
+				C0B393EC2AA68D4C00FA686B /* GameType.swift */,
 				C05BC4572A925F36009E8126 /* Board.swift */,
 			);
 			path = Models;
@@ -320,6 +323,7 @@
 				C05BC4562A925977009E8126 /* GameView.swift in Sources */,
 				C05BC4602A926C99009E8126 /* TileValue.swift in Sources */,
 				C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */,
+				C0B393ED2AA68D4C00FA686B /* GameType.swift in Sources */,
 				C00286112AA65E8500E1B723 /* RouterView.swift in Sources */,
 				C05BC4622A93804B009E8126 /* TileGenerator.swift in Sources */,
 				C002860D2AA54C9100E1B723 /* MenuPopupView.swift in Sources */,

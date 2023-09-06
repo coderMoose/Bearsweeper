@@ -63,6 +63,6 @@ struct MenuPopupView: View {
 
 struct MenuPopupView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuPopupView(board: Board(), returnToMainViewTapped: {}, newGameTapped: {})
+        MenuPopupView(board: Board(gameType: .beginner), returnToMainViewTapped: {}, newGameTapped: {})
     }
 }

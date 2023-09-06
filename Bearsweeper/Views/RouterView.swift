@@ -14,16 +14,16 @@ enum Screen {
 
 struct RouterView: View {
     @State private var currentScreen = Screen.mainView
-    @State private var board = Board()
+    @State private var board = Board(gameType: .beginner)
     
     var body: some View {
         switch currentScreen {
         case .gameView:
             GameView(board: board, returnToMainViewTapped: {
                 currentScreen = .mainView
-                board = Board()
+                board = Board(gameType: .beginner)
             }, newGameTapped: {
-                board = Board()
+                board = Board(gameType: .beginner)
             })
             
         case .mainView:

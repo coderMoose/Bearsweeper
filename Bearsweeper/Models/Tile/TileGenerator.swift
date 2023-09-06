@@ -8,15 +8,15 @@
 import Foundation
 
 protocol TileGenerator {
-    func generateTiles() -> Set<Int>
+    func generateTiles(gameType: GameType) -> Set<Int>
 }
 
 struct RandomTileGenerator: TileGenerator {
-    func generateTiles() -> Set<Int> {
+    func generateTiles(gameType: GameType) -> Set<Int> {
         var randomTiles: Set<Int> = []
         
-        while randomTiles.count != 10 {
-            let randomPos = Int.random(in: 0..<64)
+        while randomTiles.count != gameType.numBees {
+            let randomPos = Int.random(in: 0..<gameType.numTiles)
             randomTiles.insert(randomPos)
         }
         

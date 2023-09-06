@@ -10,12 +10,11 @@ import XCTest
 
 final class RandomTileGeneratorTests: XCTestCase {
     func testRandomTileGeneratorGeneratesCorrectAmountOfTiles() {
-        // TODO: test different game types as well
-        let sut = Board()
+        let sut = Board(gameType: .beginner)
         
-        XCTAssert(sut.tiles.count == 64)
+        XCTAssert(sut.tiles.count == sut.gameType.numTiles)
         
         let mineCount = sut.tiles.lazy.filter({ $0.value.isBee }).count
-        XCTAssert(mineCount == 10)
+        XCTAssert(mineCount == sut.gameType.numBees)
     }
 }

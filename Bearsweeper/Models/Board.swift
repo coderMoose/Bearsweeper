@@ -10,10 +10,12 @@ import Foundation
 class Board: ObservableObject {
     @Published var gameState: GameState = .ongoing
     @Published private(set) var tiles: [Tile] = []
-        
+    
+    let gameType: GameType
     private let tileGenerator: TileGenerator
     
-    init(tileGenerator: TileGenerator = RandomTileGenerator()) {
+    init(gameType: GameType, tileGenerator: TileGenerator = RandomTileGenerator()) {
+        self.gameType = gameType
         self.tileGenerator = tileGenerator
         populateBoard()
         assignNumberOfSurroundingBeesToTiles()
@@ -76,12 +78,16 @@ class Board: ObservableObject {
     }
     
     private func populateBoard() {
-        let randomTiles = tileGenerator.generateTiles()
-        tiles.reserveCapacity(64)
-
-        for i in 0..<64 {
-            let row = i / 8
-            let col = i % 8
+        let randomTiles = tileGenerator.generateTiles(gameType: gameType)
+        tiles.reserveCapacity(gameType.numTiles)
+        
+        var row = -1
+        for i in 0..<gameType.numTiles {
+            let col = i % gameType.numColumns
+            // If the tile is in the first column, then it's at the beginning of a new row
+            if col == 0 {
+                row += 1
+            }
             
             let isBeeTile = randomTiles.contains(i)
             let newTile = Tile(value: isBeeTile ? .bee : .honey(0), row: row, col: col)
@@ -91,21 +97,19 @@ class Board: ObservableObject {
     
     private func checkIsGameWon() {
         // If there are only tiles with bees left, user has won the game
-        //TODO: change this to to correct number of mines for selected game type
         let revealedCount = tiles.lazy.filter({ $0.isRevealed }).count
-        gameState = revealedCount == 54 ? .won : .ongoing
+        gameState = revealedCount == gameType.numSafeTiles ? .won : .ongoing
     }
     
-    func tileAt(row: Int, col: Int) -> Tile? {
-        //TODO: board is currently hardcoded to have 8 rows/columns, change this later on
-        if row < 0 || row >= 8 {
+    private func tileAt(row: Int, col: Int) -> Tile? {
+        if row < 0 || row >= gameType.numRows {
             return nil
         }
-        if col < 0 || col >= 8 {
+        if col < 0 || col >= gameType.numColumns {
             return nil
         }
 
-        let index = (row * 8) + col
+        let index = (row * gameType.numColumns) + col
         return tiles[index]
     }
     

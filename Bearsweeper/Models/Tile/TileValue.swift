@@ -14,7 +14,7 @@ enum TileValue {
     var displayText: String {
         switch self {
         case .honey(let numOfBeesAround):
-            return numOfBeesAround == 0 ? "" : String(numOfBeesAround)
+            return numOfBeesAround == 0 ? "0" : String(numOfBeesAround)
         case .bee:
             return "BEE"
         }

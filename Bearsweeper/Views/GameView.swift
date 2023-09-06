@@ -62,6 +62,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(board: Board(), returnToMainViewTapped: {}, newGameTapped: {})
+        GameView(board: Board(gameType: .beginner), returnToMainViewTapped: {}, newGameTapped: {})
     }
 }
