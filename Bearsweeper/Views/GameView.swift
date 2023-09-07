@@ -39,7 +39,8 @@ struct GameView: View {
         HStack {
             Spacer()
             bearIcon
-            Text(board.gameState.displayText)
+            Spacer()
+            TimerView(board: board)
             Spacer()
         }
         .padding()

@@ -27,6 +27,8 @@
 		C08F7F432A919C9D001F887D /* BearsweeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F422A919C9D001F887D /* BearsweeperUITests.swift */; };
 		C08F7F452A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F442A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift */; };
 		C0B393ED2AA68D4C00FA686B /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B393EC2AA68D4C00FA686B /* GameType.swift */; };
+		C0B393EF2AAA573800FA686B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B393EE2AAA573800FA686B /* TimerView.swift */; };
+		C0B393F12AAA587A00FA686B /* NFPixels-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0B393F02AAA587A00FA686B /* NFPixels-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,9 @@
 		C08F7F422A919C9D001F887D /* BearsweeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperUITests.swift; sourceTree = "<group>"; };
 		C08F7F442A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C0B393EC2AA68D4C00FA686B /* GameType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType.swift; sourceTree = "<group>"; };
+		C0B393EE2AAA573800FA686B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		C0B393F02AAA587A00FA686B /* NFPixels-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NFPixels-Regular.ttf"; sourceTree = "<group>"; };
+		C0B393F22AAA589D00FA686B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,7 @@
 				C05BC4872AA37FB7009E8126 /* BoardView.swift */,
 				C05BC45B2A925F9B009E8126 /* TileView.swift */,
 				C05BC4552A925977009E8126 /* GameView.swift */,
+				C0B393EE2AAA573800FA686B /* TimerView.swift */,
 				C002860E2AA65DFA00E1B723 /* MainView.swift */,
 				C00286102AA65E8500E1B723 /* RouterView.swift */,
 				C002860C2AA54C9100E1B723 /* MenuPopupView.swift */,
@@ -113,6 +119,7 @@
 		C05BC4662A9380D4009E8126 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C0B393F02AAA587A00FA686B /* NFPixels-Regular.ttf */,
 				C05BC4672A9380E3009E8126 /* Tile */,
 				C05BC45D2A926922009E8126 /* GameState.swift */,
 				C0B393EC2AA68D4C00FA686B /* GameType.swift */,
@@ -154,6 +161,7 @@
 		C08F7F262A919C9D001F887D /* Bearsweeper */ = {
 			isa = PBXGroup;
 			children = (
+				C0B393F22AAA589D00FA686B /* Info.plist */,
 				C05BC4662A9380D4009E8126 /* Models */,
 				C05BC4652A9380CC009E8126 /* Views */,
 				C08F7F272A919C9D001F887D /* BearsweeperApp.swift */,
@@ -295,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C08F7F2F2A919C9D001F887D /* Preview Assets.xcassets in Resources */,
+				C0B393F12AAA587A00FA686B /* NFPixels-Regular.ttf in Resources */,
 				C08F7F2C2A919C9D001F887D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B393EF2AAA573800FA686B /* TimerView.swift in Sources */,
 				C05BC4562A925977009E8126 /* GameView.swift in Sources */,
 				C05BC4602A926C99009E8126 /* TileValue.swift in Sources */,
 				C08F7F282A919C9D001F887D /* BearsweeperApp.swift in Sources */,
@@ -496,6 +506,7 @@
 				DEVELOPMENT_TEAM = 27K85DG95M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bearsweeper/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -525,6 +536,7 @@
 				DEVELOPMENT_TEAM = 27K85DG95M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bearsweeper/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -46,7 +46,7 @@ struct MenuPopupView: View {
     private var resumeButton: some View {
         Button {
             withAnimation {
-                if board.gameState == .lost {
+                if board.gameState.isGameOver {
                     newGameTapped()
                 }
             }
