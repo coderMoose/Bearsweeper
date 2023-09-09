@@ -5,7 +5,7 @@
 //  Created by Daniel on 2023-08-20.
 //
 
-import Foundation
+import SwiftUI
 
 enum TileValue {
     case honey(Int) // a safe tile
@@ -44,6 +44,32 @@ enum TileValue {
             return num == 0
         case .bee:
             return false
+        }
+    }
+    
+    var textColor: Color {
+        switch self {
+        case .honey(let num):
+            if num == 8 {
+                return .gray
+            } else if num == 7 {
+                return .black
+            } else if num == 6 {
+                return .teal
+            }  else if num == 5 {
+                return .red
+            } else if num == 4 {
+                return .indigo
+            } else if num == 3 {
+                return .red
+            } else if num == 2 {
+                return .green
+            } else if num == 1 {
+                return .cyan
+            }
+            return .red
+        case .bee:
+            return .red
         }
     }
 }
