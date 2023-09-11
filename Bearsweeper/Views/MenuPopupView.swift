@@ -14,6 +14,11 @@ struct MenuPopupView: View {
     
     var body: some View {
         VStack {
+            if board.gameState == .won {
+                Image("honey")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+            }
             Text(board.gameState.displayText)
                 .font(.title)
             HStack {
@@ -23,7 +28,7 @@ struct MenuPopupView: View {
                 }
             }
         }
-        .frame(width: 300, height: 300)
+        .frame(width: 350, height: 400)
         .background(Color.brown)
         .border(Color.black, width: 3)
     }
