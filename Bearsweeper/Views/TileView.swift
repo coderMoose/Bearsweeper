@@ -36,7 +36,7 @@ struct TileView: View {
                 }
             
             if tile.value.isBee {
-                Image(uiImage: UIImage(named: "bee")!)
+                Image("bee")
                     .resizable()
                     .colorMultiply(.yellow)
                     .opacity(tile.state.isRevealed ? 1.0 : 0.0)

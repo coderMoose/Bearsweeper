@@ -53,6 +53,8 @@ struct MenuPopupView: View {
             withAnimation {
                 if board.gameState.isGameOver {
                     newGameTapped()
+                } else {
+                    board.gameState = .ongoing
                 }
             }
         } label: {

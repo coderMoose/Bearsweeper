@@ -13,6 +13,7 @@ class Board: ObservableObject {
     @Published private(set) var beesLeft: Int
     
     let gameType: GameType
+    private var isFirstTap = true
     private let tileGenerator: TileGenerator
     
     init(gameType: GameType, tileGenerator: TileGenerator = RandomTileGenerator()) {
@@ -163,6 +164,15 @@ class Board: ObservableObject {
     }
     
     func processTap(tile: Tile) {
+        if !tile.value.isZero && isFirstTap {
+            tiles = []
+            populateBoard()
+            assignNumberOfSurroundingBeesToTiles()
+            processTap(tile: self[tile.row, tile.col]!)
+            return
+        }
+        
+        isFirstTap = false
         if tile.value.isBee {
             tile.state = .revealed
             gameState = .lost

@@ -64,7 +64,7 @@ struct GameView: View {
     }
     
     private var bearIcon: some View {
-        Image(uiImage: UIImage(named: board.gameState.imageName)!)
+        Image(board.gameState.imageName)
             .resizable()
             .frame(width: 65, height: 65)
             .onTapGesture {
