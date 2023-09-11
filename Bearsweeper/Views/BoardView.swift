@@ -25,9 +25,11 @@ struct BoardView: View {
                 ForEach(0..<board.gameType.numColumns, id: \.self) { col in
                     let tileSize = tileSize(thatFits: geo.size)
                     let currentTile = board[row, col]
-                    TileView(tile: currentTile!) { tile in
+                    TileView(tile: currentTile!, onTap: { tile in
                         board.processTap(tile: tile)
-                    } .frame(width: tileSize, height: tileSize)
+                    }, onLongTap: { tile in
+                        board.processLongTap(tile: tile)
+                    }).frame(width: tileSize, height: tileSize)
                 }
             }
         }

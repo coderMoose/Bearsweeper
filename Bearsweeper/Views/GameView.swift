@@ -38,6 +38,8 @@ struct GameView: View {
     private var navBar: some View {
         HStack {
             Spacer()
+            beesLeftView
+            Spacer()
             bearIcon
             Spacer()
             TimerView(board: board)
@@ -45,6 +47,20 @@ struct GameView: View {
         }
         .padding()
         .background(Color.brown)
+    }
+    
+    private var beesLeftView: some View {
+        HStack {
+            Text(String(format: "%03d", board.beesLeft))
+                .font(.custom("NFPixels-Regular", size: 35, relativeTo: .body))
+                .foregroundColor(board.beesLeft >= 0 ? .yellow : .red)
+        }
+        .background(
+            Rectangle()
+                .foregroundColor(.black)
+                .frame(width: 80, height: 50)
+                .border(Color.yellow)
+        )
     }
     
     private var bearIcon: some View {

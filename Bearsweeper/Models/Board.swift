@@ -10,6 +10,7 @@ import Foundation
 class Board: ObservableObject {
     @Published var gameState: GameState = .ongoing
     @Published private(set) var tiles: [Tile] = []
+    @Published private(set) var beesLeft: Int
     
     let gameType: GameType
     private let tileGenerator: TileGenerator
@@ -17,6 +18,7 @@ class Board: ObservableObject {
     init(gameType: GameType, tileGenerator: TileGenerator = RandomTileGenerator()) {
         self.gameType = gameType
         self.tileGenerator = tileGenerator
+        self.beesLeft = gameType.numBees
         populateBoard()
         assignNumberOfSurroundingBeesToTiles()
     }
@@ -51,28 +53,28 @@ class Board: ObservableObject {
     }
     
     private func openTilesAround(tile: Tile) {
-        if let tileAbove = above(tile: tile), !tileAbove.isRevealed {
+        if let tileAbove = above(tile: tile), !tileAbove.state.isRevealed {
             revealAllZeroesAround(tile: tileAbove)
         }
-        if let tileAboveRight = aboveRight(tile: tile), !tileAboveRight.isRevealed {
+        if let tileAboveRight = aboveRight(tile: tile), !tileAboveRight.state.isRevealed {
             revealAllZeroesAround(tile: tileAboveRight)
         }
-        if let tileAboveLeft = aboveLeft(tile: tile), !tileAboveLeft.isRevealed {
+        if let tileAboveLeft = aboveLeft(tile: tile), !tileAboveLeft.state.isRevealed {
             revealAllZeroesAround(tile: tileAboveLeft)
         }
-        if let tileBelow = below(tile: tile), !tileBelow.isRevealed {
+        if let tileBelow = below(tile: tile), !tileBelow.state.isRevealed {
             revealAllZeroesAround(tile: tileBelow)
         }
-        if let tileBelowRight = belowRight(tile: tile), !tileBelowRight.isRevealed {
+        if let tileBelowRight = belowRight(tile: tile), !tileBelowRight.state.isRevealed {
             revealAllZeroesAround(tile: tileBelowRight)
         }
-        if let tileBelowLeft = belowLeft(tile: tile), !tileBelowLeft.isRevealed {
+        if let tileBelowLeft = belowLeft(tile: tile), !tileBelowLeft.state.isRevealed {
             revealAllZeroesAround(tile: tileBelowLeft)
         }
-        if let tileRight = right(tile: tile), !tileRight.isRevealed {
+        if let tileRight = right(tile: tile), !tileRight.state.isRevealed {
             revealAllZeroesAround(tile: tileRight)
         }
-        if let tileLeft = left(tile: tile), !tileLeft.isRevealed {
+        if let tileLeft = left(tile: tile), !tileLeft.state.isRevealed {
             revealAllZeroesAround(tile: tileLeft)
         }
     }
@@ -97,7 +99,7 @@ class Board: ObservableObject {
     
     private func checkIsGameWon() {
         // If there are only tiles with bees left, user has won the game
-        let revealedCount = tiles.lazy.filter({ $0.isRevealed }).count
+        let revealedCount = tiles.lazy.filter({ $0.state.isRevealed }).count
         gameState = revealedCount == gameType.numSafeTiles ? .won : .ongoing
     }
     
@@ -118,10 +120,10 @@ class Board: ObservableObject {
         case .bee:
             break
         case .honey:
-            if tile.isRevealed {
+            if tile.state.isRevealed {
                 return
             }
-            self[tile.row, tile.col]?.isRevealed = true
+            self[tile.row, tile.col]?.state = .revealed
             if tile.value.isZero {
                 openTilesAround(tile: tile)
             }
@@ -162,7 +164,7 @@ class Board: ObservableObject {
     
     func processTap(tile: Tile) {
         if tile.value.isBee {
-            tile.isRevealed = true
+            tile.state = .revealed
             gameState = .lost
             return
         }
@@ -172,8 +174,18 @@ class Board: ObservableObject {
             revealAllZeroesAround(tile: tile)
         }
         
-        tile.isRevealed = true
+        tile.state = .revealed
         checkIsGameWon()
+    }
+    
+    func processLongTap(tile: Tile) {
+        if tile.state.isFlagged {
+            tile.state = .notRevealed
+            beesLeft += 1
+        } else {
+            tile.state = .flagged
+            beesLeft -= 1
+        }
     }
     
     func togglePause() {
