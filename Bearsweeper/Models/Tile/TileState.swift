@@ -38,15 +38,4 @@ enum TileState {
             return false
         }
     }
-    
-    var tileColor: Color {
-        switch self {
-        case .revealed:
-            return .clear
-        case .notRevealed:
-            return .beige
-        case .flagged:
-            return .red
-        }
-    }
 }
