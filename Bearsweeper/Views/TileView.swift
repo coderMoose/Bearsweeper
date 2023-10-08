@@ -30,7 +30,7 @@ struct TileView: View {
                 Text(tile.value.displayText)
                     .foregroundColor(tile.value.textColor)
                     .shadow(color: .black, radius: 0.5)
-                    .font(.custom("NFPixels-Regular", size: 40))
+                    .font(.custom("NFPixels-Regular", size: 45))
                     .opacity(tile.state.isRevealed ? 1.0 : 0.0)
             }
         }
