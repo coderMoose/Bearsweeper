@@ -21,6 +21,7 @@ struct TimerView: View {
                     .frame(width: 80, height: 50)
                     .border(Color.yellow)
             )
+            .frame(width: 52.5)
     }
 }
 

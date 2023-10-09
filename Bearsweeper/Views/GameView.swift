@@ -39,6 +39,7 @@ struct GameView: View {
         HStack {
             Spacer()
             beesLeftView
+                .frame(width: 52.5)
             Spacer()
             bearIcon
             Spacer()

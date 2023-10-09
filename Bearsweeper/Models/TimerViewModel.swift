@@ -12,12 +12,15 @@ import SwiftUI
 class TimerViewModel: ObservableObject {
     private var assignCancellable: AnyCancellable? = nil
 
-    @Published var tick = "0"
+    @Published private(set) var tick = "000"
     
-    private var numSeconds = 0
+    private var numSeconds = 0 {
+        didSet {
+            tick = String(format: "%03d", numSeconds)
+        }
+    }
     
     func startTimer() {
-        tick = "0"
         numSeconds = 0
         resumeTimer()
     }
@@ -25,11 +28,9 @@ class TimerViewModel: ObservableObject {
     func resumeTimer() {
         assignCancellable = Timer.publish(every: 1.0, on: .main, in: .default)
             .autoconnect()
-            .map { [self] _ in
-                numSeconds += 1
-                return String(numSeconds)
-            }
-            .assign(to: \TimerViewModel.tick, on: self)
+            .sink(receiveValue: { _ in
+                self.numSeconds += 1
+            })
     }
     
     func pause() {
