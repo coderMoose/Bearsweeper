@@ -16,11 +16,6 @@ struct TileView: View {
         ZStack {
             tileBackground
             
-            Image("flag")
-                .resizable()
-                .padding(3)
-                .opacity(tile.state.isFlagged ? 1.0 : 0.0)
-            
             if tile.value.isBee {
                 Image("bee")
                     .resizable()
@@ -42,10 +37,10 @@ struct TileView: View {
                 .opacity(tile.state.isRevealed ? 1.0 : 0.0)
                 .foregroundColor(.brown)
                 .disabled(tile.state.isRevealed)
-            
+        
             Rectangle()
                 .border(Color.brown.gradient.shadow(.inner(radius: 10)))
-                .foregroundColor(tile.state.isRevealed ? .clear : .beige)
+                .foregroundColor(tileForegroundColor)
                 .onTapGesture {
                     withAnimation {
                         if !tile.state.isFlagged {
@@ -58,6 +53,16 @@ struct TileView: View {
                         onLongTap(tile)
                     }
                 }
+        }
+    }
+    
+    private var tileForegroundColor: Color {
+        if tile.state.isFlagged {
+            .red
+        } else if tile.state.isRevealed {
+            .clear
+        } else {
+            .beige
         }
     }
 }
