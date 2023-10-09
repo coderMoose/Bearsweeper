@@ -12,6 +12,8 @@ struct MenuPopupView: View {
     let returnToMainViewTapped: () -> Void
     let newGameTapped: () -> Void
     
+    @EnvironmentObject private var timerViewModel: TimerViewModel
+    
     var body: some View {
         VStack {
             if board.gameState == .won {
@@ -31,6 +33,9 @@ struct MenuPopupView: View {
         .frame(width: 350, height: 400)
         .background(Color.brown)
         .border(Color.black, width: 3)
+        .onAppear {
+            timerViewModel.cancel()
+        }
     }
     
     private var returnToMainViewButton: some View {
@@ -54,6 +59,7 @@ struct MenuPopupView: View {
                 if board.gameState.isGameOver {
                     newGameTapped()
                 } else {
+                    timerViewModel.resumeTimer()
                     board.gameState = .ongoing
                 }
             }

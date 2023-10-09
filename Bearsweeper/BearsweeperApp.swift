@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct BearsweeperApp: App {
+    @StateObject private var timerViewModel = TimerViewModel()
+
     var body: some Scene {
         WindowGroup {
             RouterView()
+                .environmentObject(timerViewModel)
         }
     }
 }

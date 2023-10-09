@@ -9,13 +9,10 @@ import SwiftUI
 
 struct TimerView: View {
     @ObservedObject var board: Board
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    @State private var startDate = Date.now
-    @State private var timeElapsed: Int = 0
+    @EnvironmentObject private var timerViewModel: TimerViewModel
     
     var body: some View {
-        Text(timeElapsed >= 999 ? "999" : String(format: "%03d", timeElapsed))
+        Text(timerViewModel.tick)
             .font(.custom("NFPixels-Regular", size: 35))
             .foregroundColor(.yellow)
             .background(
@@ -24,13 +21,6 @@ struct TimerView: View {
                     .frame(width: 80, height: 50)
                     .border(Color.yellow)
             )
-            .onReceive(timer) { firedDate in
-                if board.gameState.isGameOver {
-                    timer.upstream.connect().cancel()
-                } else {
-                    timeElapsed = Int(firedDate.timeIntervalSince(startDate))
-                }
-            }
     }
 }
 

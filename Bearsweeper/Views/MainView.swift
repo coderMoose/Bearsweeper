@@ -10,6 +10,8 @@ import SwiftUI
 struct MainView: View {
     @Binding var currentScreen: Screen
     
+    @EnvironmentObject private var timerViewModel: TimerViewModel
+    
     var body: some View {
         VStack {
             navBar
@@ -25,6 +27,7 @@ struct MainView: View {
     private var newGameButton: some View {
         Button {
             withAnimation {
+                timerViewModel.startTimer()
                 currentScreen = .gameView
             }
         } label: {

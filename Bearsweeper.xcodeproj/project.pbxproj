@@ -27,6 +27,7 @@
 		C08F7F392A919C9D001F887D /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F382A919C9D001F887D /* BoardTests.swift */; };
 		C08F7F432A919C9D001F887D /* BearsweeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F422A919C9D001F887D /* BearsweeperUITests.swift */; };
 		C08F7F452A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F7F442A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift */; };
+		C0A49B802AD3757000205E9E /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49B7F2AD3757000205E9E /* TimerViewModel.swift */; };
 		C0B393ED2AA68D4C00FA686B /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B393EC2AA68D4C00FA686B /* GameType.swift */; };
 		C0B393EF2AAA573800FA686B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B393EE2AAA573800FA686B /* TimerView.swift */; };
 		C0B393F12AAA587A00FA686B /* NFPixels-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0B393F02AAA587A00FA686B /* NFPixels-Regular.ttf */; };
@@ -73,6 +74,7 @@
 		C08F7F3E2A919C9D001F887D /* BearsweeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BearsweeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08F7F422A919C9D001F887D /* BearsweeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperUITests.swift; sourceTree = "<group>"; };
 		C08F7F442A919C9D001F887D /* BearsweeperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearsweeperUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C0A49B7F2AD3757000205E9E /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		C0B393EC2AA68D4C00FA686B /* GameType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType.swift; sourceTree = "<group>"; };
 		C0B393EE2AAA573800FA686B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C0B393F02AAA587A00FA686B /* NFPixels-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NFPixels-Regular.ttf"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				C0B393F02AAA587A00FA686B /* NFPixels-Regular.ttf */,
+				C0A49B7F2AD3757000205E9E /* TimerViewModel.swift */,
 				C05BC4672A9380E3009E8126 /* Tile */,
 				C05BC45D2A926922009E8126 /* GameState.swift */,
 				C0B393EC2AA68D4C00FA686B /* GameType.swift */,
@@ -344,6 +347,7 @@
 				C05BC4582A925F36009E8126 /* Board.swift in Sources */,
 				C05BC45E2A926922009E8126 /* GameState.swift in Sources */,
 				C002860F2AA65DFA00E1B723 /* MainView.swift in Sources */,
+				C0A49B802AD3757000205E9E /* TimerViewModel.swift in Sources */,
 				C05BC4882AA37FB7009E8126 /* BoardView.swift in Sources */,
 				C05BC45C2A925F9B009E8126 /* TileView.swift in Sources */,
 				C05BC45A2A925F7A009E8126 /* Tile.swift in Sources */,

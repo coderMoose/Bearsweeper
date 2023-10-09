@@ -15,6 +15,7 @@ enum Screen {
 struct RouterView: View {
     @State private var currentScreen = Screen.mainView
     @State private var board = Board(gameType: .beginner)
+    @EnvironmentObject private var timerViewModel: TimerViewModel
     
     var body: some View {
         switch currentScreen {
@@ -22,8 +23,10 @@ struct RouterView: View {
             GameView(board: board, returnToMainViewTapped: {
                 currentScreen = .mainView
                 board = Board(gameType: .beginner)
+                timerViewModel.startTimer()
             }, newGameTapped: {
                 board = Board(gameType: .beginner)
+                timerViewModel.startTimer()
             })
             
         case .mainView:
