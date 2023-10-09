@@ -1,8 +1,10 @@
 # Bearsweeper
-Video will go here
+<div align="center">
+<video src="https://github.com/coderMoose/Bearsweeper/assets/130883757/92517763-7942-4e44-804a-e09760589a4e" >
+</div>
 
 
-This is just something I built for fun and I hope it's useful for anyone learning how to build a basic game with SwiftUI.
+This is something I built for fun and I hope it's useful for anyone learning how to build a basic game with SwiftUI.
 
 This project was made as an homage to Minesweeper. Bearsweeper is a project I made as a challenge to see if I could build Minesweeper from scratch, without looking at any tutorials. I made the iconic smiley face a bear and the mines bees to keep me entertained. The idea is that the bear would be trying to get honey from a beehive without getting stung.
 
